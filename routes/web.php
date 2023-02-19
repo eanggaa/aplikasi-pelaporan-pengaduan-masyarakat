@@ -22,8 +22,11 @@ Route::get('/', function () {
 });
 
 Route::middleware(['web'])->group(function(){
+    Route::get('/login', [LoginController::class, 'login'])->name('login');
+    Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
     Route::get('/register', [LoginController::class, 'register'])->name('register');
     Route::post('/postregister', [LoginController::class, 'postregister'])->name('postregister');
+    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 });
 
 Route::prefix('admin')->name('admin.')->group(function(){
