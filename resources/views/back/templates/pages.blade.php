@@ -14,12 +14,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>@yield('title')</title>
     <!-- CSS files -->
-    <link href="./back/dist/css/tabler.min.css?1674944402" rel="stylesheet"/>
-    <link href="./back/dist/css/tabler-flags.min.css?1674944402" rel="stylesheet"/>
-    <link href="./back/dist/css/tabler-payments.min.css?1674944402" rel="stylesheet"/>
-    <link href="./back/dist/css/tabler-vendors.min.css?1674944402" rel="stylesheet"/>
+    <link href="{{ asset('back/dist/css/tabler.min.css?1674944402') }}" rel="stylesheet"/>
+    <link href="{{ asset('back/dist/css/tabler-flags.min.css?1674944402') }}" rel="stylesheet"/>
+    <link href="{{ asset('back/dist/css/tabler-payments.min.css?1674944402') }}" rel="stylesheet"/>
+    <link href="{{ asset('back/dist/css/tabler-vendors.min.css?1674944402') }}" rel="stylesheet"/>
     @stack('stylesheets')
-    <link href="./back/dist/css/demo.min.css?1674944402" rel="stylesheet"/>
+    <link href="{{ asset('back/dist/css/demo.min.css?1674944402') }}" rel="stylesheet"/>
     <style>
       @import url('https://rsms.me/inter/inter.css');
       :root {
@@ -31,7 +31,7 @@
     </style>
   </head>
   <body >
-    <script src="./back/dist/js/demo-theme.min.js?1674944402"></script>
+    <script src="{{ asset('back/dist/js/demo-theme.min.js?1674944402') }}"></script>
     <div class="page">
       <!-- Navbar -->
       @if(auth()->user()->level == 1 or auth()->user()->level == 2)
@@ -56,13 +56,13 @@
       </div>
     </div>
     <!-- Libs JS -->
-    <script src="./back/dist/libs/apexcharts/dist/apexcharts.min.js?1674944402" defer></script>
-    <script src="./back/dist/libs/jsvectormap/dist/js/jsvectormap.min.js?1674944402" defer></script>
-    <script src="./back/dist/libs/jsvectormap/dist/maps/world.js?1674944402" defer></script>
-    <script src="./back/dist/libs/jsvectormap/dist/maps/world-merc.js?1674944402" defer></script>
+    <script src="{{ asset('back/dist/libs/apexcharts/dist/apexcharts.min.js?1674944402') }}" defer></script>
+    <script src="{{ asset('back/dist/libs/jsvectormap/dist/js/jsvectormap.min.js?1674944402') }}" defer></script>
+    <script src="{{ asset('back/dist/libs/jsvectormap/dist/maps/world.js?1674944402') }}" defer></script>
+    <script src="{{ asset('back/dist/libs/jsvectormap/dist/maps/world-merc.js?1674944402') }}" defer></script>
     <!-- Tabler Core -->
-    <script src="./back/dist/js/tabler.min.js?1674944402" defer></script>
+    <script src="{{ asset('back/dist/js/tabler.min.js?1674944402') }}" defer></script>
     @stack('scripts')
-    <script src="./back/dist/js/demo.min.js?1674944402" defer></script>
+    <script src="{{ asset('back/dist/js/demo.min.js?1674944402') }}" defer></script>
   </body>
 </html>
