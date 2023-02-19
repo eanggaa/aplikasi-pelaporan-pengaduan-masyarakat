@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PetugasController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +19,27 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::middleware(['web'])->group(function(){
+    Route::get('/register', [LoginController::class, 'register'])->name('register');
+    Route::post('/postregister', [LoginController::class, 'postregister'])->name('postregister');
+});
+
+Route::prefix('admin')->name('admin.')->group(function(){
+    Route::middleware(['auth:web'])->group(function(){
+        Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+    });
+});
+
+Route::prefix('petugas')->name('petugas.')->group(function(){
+    Route::middleware(['auth:web'])->group(function(){
+        Route::get('/dashboard', [PetugasController::class, 'dashboard'])->name('dashboard');
+    });
+});
+
+Route::prefix('user')->name('user.')->group(function(){
+    Route::middleware(['auth:web'])->group(function(){
+        Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
+    });
 });
